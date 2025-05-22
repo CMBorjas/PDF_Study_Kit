@@ -4,6 +4,8 @@ import tkinter as tk
 from tkinter import filedialog
 
 from extract import extract_text # Assuming extract.py is in the same directory
+from organize import parse_raw_text # Assuming organize.py is in the same directory
+
 
 def choose_file_gui():
     try:
@@ -52,5 +54,14 @@ def main():
         f.write(output)
 
     print("Text extraction complete. Output saved to /output/raw_text.txt")
+
+    
+    chapters = parse_raw_text()
+    print(f"\nParsed {len(chapters)} chapters.")
+    for chapter in chapters:
+        print(f"\n{chapter['title']}")
+        print(f"{len(chapter['content'])} lines of content")
+        print(f"{len(chapter['remember'])} 'Remember this' tips")
+
 if __name__ == "__main__":
     main()

@@ -25,18 +25,18 @@ pdf-studykit/
 
 #### Core Infrastructure
 
-* [ ] Create a project directory with a clear modular structure
-* [ ] Define a `Dockerfile` to containerize the app
-* [ ] Create a `docker-compose.yml` (optional, for scalability or GUI)
-* [ ] Prepare `requirements.txt` with all dependencies
-* [ ] Set up volume mapping for input/output folders in Docker
+* [X] Create a project directory with a clear modular structure
+* [X] Define a `Dockerfile` to containerize the app
+* [X] Create a `docker-compose.yml` (optional, for scalability or GUI)
+* [X] Prepare `requirements.txt` with all dependencies
+* [X] Set up volume mapping for input/output folders in Docker
 
 ---
 
 #### PDF Intake and Text Extraction
 
-* [ ] Accept and read PDF files
-* [ ] Extract **all visible text**, preserving:
+* [X] Accept and read PDF files
+* [X] Extract **all visible text**, preserving:
 
   * [ ] Headings
   * [ ] Subheadings
@@ -46,12 +46,11 @@ pdf-studykit/
 
 ---
 
-#### 🏗️ Structure Reconstruction
+#### Structure Reconstruction
 
 * [ ] Detect and parse the **Table of Contents**
-* [ ] Extract:
-
-  * [ ] Chapter titles
+* [x] Extract:
+  * [x] Chapter titles
   * [ ] Major points or headings
   * [ ] Keywords (bold/italicized terms)
 * [ ] Identify:
@@ -62,7 +61,7 @@ pdf-studykit/
 
 ---
 
-#### 🎓 Mnemonic Generation
+#### Mnemonic Generation
 
 * [ ] Generate memory aids for:
 
@@ -78,7 +77,7 @@ pdf-studykit/
 
 ---
 
-#### 📄 Output Format Creation
+#### Output Format Creation
 
 * [ ] Generate a **Word document (.docx)** with:
 
@@ -96,13 +95,13 @@ pdf-studykit/
 
 ---
 
-#### 🔁 Reusability & Consistency
+#### Reusability & Consistency
 
-* [ ] Ensure the full process is **automated inside Docker**
-* [ ] Create a `main.py` script to orchestrate:
+* [X] Ensure the full process is **automated inside Docker**
+* [x] Create a `main.py` script to orchestrate:
 
-  * [ ] Extraction
-  * [ ] Structuring
+  * [x] Extraction
+  * [x] Structuring
   * [ ] Mnemonic generation
   * [ ] Export formatting
 * [ ] Validate outputs with test PDFs for consistency
@@ -110,7 +109,7 @@ pdf-studykit/
 
 ---
 
-#### 🌐 Future Enhancements (Optional but Recommended)
+#### Future Enhancements (Optional but Recommended)
 
 * [ ] Add a simple **Flask or FastAPI GUI**
 * [ ] Add drag-and-drop PDF input

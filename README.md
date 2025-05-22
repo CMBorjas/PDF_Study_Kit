@@ -19,9 +19,6 @@ pdf-studykit/
     ├── *.md
 
 ```
-
-Here’s a comprehensive **checklist** to guide you through building the full **Dockerized PDF-to-StudyKit Application** from start to finish. This will ensure you meet all your core goals: consistent PDF intake, structured output, mnemonic generation, and export in `.docx` and `.md` formats.
-
 ---
 
 ## **Project Goals Checklist**

@@ -1,0 +1,124 @@
+```bash
+pdf-studykit/
+├── Dockerfile              # Setup isolation
+├── docker-compose.yml      # Future Gui
+├── app/
+│   ├── main.py             # Starting point
+│   ├── extract.py          # PDF extraction logic
+│   ├── organize.py         # Structure reconstruction logic
+│   ├── mnemonics.py        # Mnemonic generation
+│   ├── formatter.py        # Word and Markdown formatting
+│   └── utils/
+│       ├── toc_parser.py
+│       └── keywords.py
+├── models/
+│   └── (optional for AI/ML mnemonics or NLP models)
+├── requirements.txt        # Install all requirement in docker
+└── output/
+    ├── *.docx
+    ├── *.md
+
+```
+
+Here’s a comprehensive **checklist** to guide you through building the full **Dockerized PDF-to-StudyKit Application** from start to finish. This will ensure you meet all your core goals: consistent PDF intake, structured output, mnemonic generation, and export in `.docx` and `.md` formats.
+
+---
+
+## **Project Goals Checklist**
+
+#### Core Infrastructure
+
+* [ ] Create a project directory with a clear modular structure
+* [ ] Define a `Dockerfile` to containerize the app
+* [ ] Create a `docker-compose.yml` (optional, for scalability or GUI)
+* [ ] Prepare `requirements.txt` with all dependencies
+* [ ] Set up volume mapping for input/output folders in Docker
+
+---
+
+#### PDF Intake and Text Extraction
+
+* [ ] Accept and read PDF files
+* [ ] Extract **all visible text**, preserving:
+
+  * [ ] Headings
+  * [ ] Subheadings
+  * [ ] Bullet points
+  * [ ] Page numbers
+* [ ] OCR fallback (optional): Integrate `pytesseract` for scanned PDFs
+
+---
+
+#### 🏗️ Structure Reconstruction
+
+* [ ] Detect and parse the **Table of Contents**
+* [ ] Extract:
+
+  * [ ] Chapter titles
+  * [ ] Major points or headings
+  * [ ] Keywords (bold/italicized terms)
+* [ ] Identify:
+
+  * [ ] Repeated phrases
+  * [ ] Glossary terms (if present)
+  * [ ] Sidebars, callouts, or summaries
+
+---
+
+#### 🎓 Mnemonic Generation
+
+* [ ] Generate memory aids for:
+
+  * [ ] Chapter titles
+  * [ ] Key points
+  * [ ] Important keywords
+* [ ] Use:
+
+  * [ ] Wordplay
+  * [ ] Absurd imagery
+  * [ ] Alliteration or acronyms
+* [ ] Keep mnemonics accurate and study-friendly
+
+---
+
+#### 📄 Output Format Creation
+
+* [ ] Generate a **Word document (.docx)** with:
+
+  * [ ] Headings/subheadings
+  * [ ] Bullet points
+  * [ ] Internal hyperlinks (TOC navigation)
+  * [ ] Bold/italic formatting
+* [ ] Generate a **Markdown (.md)** version with:
+
+  * [ ] Clean formatting
+  * [ ] Readability in editors like VS Code or OneNote
+* [ ] Generate text file notecards
+    * [ ] Each holding a future generated Url of the selected keyword(s).
+    
+
+---
+
+#### 🔁 Reusability & Consistency
+
+* [ ] Ensure the full process is **automated inside Docker**
+* [ ] Create a `main.py` script to orchestrate:
+
+  * [ ] Extraction
+  * [ ] Structuring
+  * [ ] Mnemonic generation
+  * [ ] Export formatting
+* [ ] Validate outputs with test PDFs for consistency
+* [ ] (Optional) Add CLI arguments for customization (e.g., "skip TOC", "only output markdown")
+
+---
+
+#### 🌐 Future Enhancements (Optional but Recommended)
+
+* [ ] Add a simple **Flask or FastAPI GUI**
+* [ ] Add drag-and-drop PDF input
+* [ ] Save user-defined mnemonics in a local database
+* [ ] Export mnemonics to Anki/flashcard format
+* [ ] Enable user-defined encoding (e.g., "replace 'confidentiality' with 'secrecy bubble'")
+
+---

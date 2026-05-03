@@ -3,3 +3,4 @@ pymupdf
 markdown
 nltk
 pdfminer.six
+requests

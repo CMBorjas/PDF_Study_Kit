@@ -1,9 +1,8 @@
 import os
 import shutil
-import tkinter as tk
-from tkinter import filedialog
 
 from extract import extract_text
+from extract_epub import extract_text_epub
 from organize import parse_raw_text
 from mnemonics import generate_mnemonics_for_chapter
 from formatter import export_docx, export_md, export_notecards
@@ -18,12 +17,18 @@ def get_paths():
 
 def choose_file_gui(input_dir):
     try:
+        import tkinter as tk
+        from tkinter import filedialog
         root = tk.Tk()  
         root.withdraw()
         file_path = filedialog.askopenfilename(
-            title="Select PDF file",
+            title="Select a file",
             initialdir=input_dir,
-            filetypes=[("PDF files", "*.pdf")]
+            filetypes=[
+                ("Supported files", "*.pdf *.epub"),
+                ("PDF files", "*.pdf"),
+                ("EPUB files", "*.epub"),
+            ]
         )
         return file_path if file_path else None
     except Exception as e:
@@ -31,11 +36,11 @@ def choose_file_gui(input_dir):
         return None
 
 def choose_file_cli(input_dir):
-    print(f"Available PDFs in {input_dir}:")
-    for f in os.listdir(input_dir):
-        if f.lower().endswith(".pdf"):
+    print(f"Available files in {input_dir}:")
+    for f in sorted(os.listdir(input_dir)):
+        if f.lower().endswith((".pdf", ".epub")):
             print(f" - {f}")
-    filename = input(f"Enter the name of the PDF file to process: ").strip()
+    filename = input("Enter the name of the file to process: ").strip()
     return os.path.join(input_dir, filename)
 
 def main():
@@ -60,7 +65,14 @@ def main():
     
     # 1. Extract
     print("Extracting text...")
-    raw_text = extract_text(file_path)
+    ext = os.path.splitext(file_path)[1].lower()
+    if ext == ".epub":
+        raw_text = extract_text_epub(file_path)
+    elif ext == ".pdf":
+        raw_text = extract_text(file_path)
+    else:
+        print(f"Unsupported file type: {ext}")
+        return
     
     raw_output_path = os.path.join(output_dir, "raw_text.txt")
     with open(raw_output_path, "w", encoding="utf-8") as f:

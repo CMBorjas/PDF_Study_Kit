@@ -4,3 +4,5 @@ markdown
 nltk
 pdfminer.six
 requests
+ebooklib
+beautifulsoup4

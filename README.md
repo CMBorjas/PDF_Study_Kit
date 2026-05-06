@@ -5,6 +5,7 @@ pdf-studykit/
 ├── app/
 │   ├── main.py             # Starting point
 │   ├── extract.py          # PDF extraction logic
+│   ├── extract_epub.py     # EPUB extraction logic
 │   ├── organize.py         # Structure reconstruction logic
 │   ├── mnemonics.py        # Mnemonic generation
 │   ├── formatter.py        # Word and Markdown formatting
@@ -43,6 +44,18 @@ pdf-studykit/
   * [ ] Bullet points
   * [ ] Page numbers
 * [ ] OCR fallback (optional): Integrate `pytesseract` for scanned PDFs
+
+---
+
+#### EPUB Intake and Text Extraction
+
+* [X] Accept and read EPUB files via `ebooklib`
+* [X] Extract all visible text, preserving:
+  * [X] Headings (h1–h6 → `##` markdown)
+  * [X] Bold / italic inline formatting
+  * [X] Bullet points / list items
+  * [X] Blockquotes / callouts
+* [X] Output matches PDF extractor format for seamless pipeline reuse
 
 ---
 
